@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  </head>
+</head>
+<body>
+    {{>newnavbar}}
+    {{!-- Body --}}
+    <div class="container mt-4">
+        <div class="mt-4 p-5 bg-primary text-white rounded">
+            <h1>Your Blog App</h1>
+            <p>Welcome to your dashboard</p>
+        </div>
+        {{#if posts.length}}
+            <ul>
+                {{#each posts}}
+                    <li>
+                        <h2>{{title}}</h2>
+                        <p>Author: {{user}}</p>
+                        <p>{{body}}</p>
+                        <p>Date Created: {{date_created}}</p>
+                    </li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>No posts available.</p>
+        {{/if}}
+        {{#if message }}
+            <h4 class="alert alert-danger mt-4">{{message}}</h4>
+        {{/if}}
+        {{#if message2 }}
+            <h4 class="alert alert-success mt-4">{{message2}}</h4>
+        {{/if}}
+    </div>
+    {{> footer}}
+</body>
+</html>
