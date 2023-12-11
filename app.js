@@ -63,7 +63,15 @@ app.get("/dashboard", (req, res) => {
             console.log(error);
             return res.status(500).send('Internal Server Error');
         }
-        res.render("dashboard", { posts });
+        posts = posts.map(post => ({
+            ...post,
+            date_created: new Date(post.date_created).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "short",
+                day: "numeric"
+            })
+        }));
+        res.render("dashboard", { posts, textClass: 'white-text' });
     });
 })
 app.get("/makepost", (req, res) => {

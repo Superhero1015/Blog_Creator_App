@@ -20,12 +20,12 @@
         {{#if posts.length}}
             <ul>
                 {{#each posts}}
-                    <li>
+                    <div class="post {{../textClass}}">
                         <h2>{{title}}</h2>
                         <p>Author: {{user}}</p>
                         <p>{{body}}</p>
                         <p>Date Created: {{date_created}}</p>
-                    </li>
+                    </div>
                 {{/each}}
             </ul>
         {{else}}
